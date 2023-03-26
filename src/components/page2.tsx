@@ -60,7 +60,7 @@ const Page2: React.FC = () => (
         </Row>
 
         <Upload {...props}>
-          <LineChart />
+          {/* <LineChart /> */}
           <Button size="large" ghost icon={<UploadOutlined />}>
             Submit & Win
           </Button>
