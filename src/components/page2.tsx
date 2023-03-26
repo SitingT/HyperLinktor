@@ -8,6 +8,7 @@ import { Col, Row } from "antd";
 import Table from "../components/table";
 import Background from "../Image/background2.jpeg";
 import LineChart from "./lineChart";
+
 // import useReadCSV from "./readCSV";
 const props: UploadProps = {
   name: "file",
@@ -70,6 +71,7 @@ const Page2: React.FC = () => (
             <Table />
           </Col>
         </Row>
+
         <Space> </Space>
       </Content>
       {/* <Footer style={footerStyle}>Footer</Footer> */}

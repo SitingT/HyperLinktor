@@ -3,7 +3,19 @@ import { Line } from "react-chartjs-2";
 import useReadCSV from "./readCSV";
 import type { ChartData, ChartOptions } from "chart.js";
 import "chartjs-adapter-date-fns"; // Import the date adapter
+import { registerables } from "chart.js";
 
+import {
+  Chart,
+  LinearScale,
+  PointElement,
+  Tooltip,
+  Legend,
+  TimeScale,
+} from "chart.js";
+Chart.register(LinearScale, PointElement, Tooltip, Legend, TimeScale);
+Chart.register(...registerables);
+Chart.register(PointElement, LinearScale);
 const LineChart = () => {
   const data = useReadCSV();
 
@@ -21,7 +33,7 @@ const LineChart = () => {
       {
         label: "S&P 500 Return",
         data: spReturnData,
-        fill: false,
+        fill: true,
         borderColor: "rgb(75, 192, 192)",
         tension: 0.1,
       },
@@ -49,7 +61,7 @@ const LineChart = () => {
         time: {
           unit: "day", // Set the appropriate time unit
           displayFormats: {
-            day: "MMM DD, YYYY", // Customize the date format
+            day: "MM,DD, YYYY", // Customize the date format
           },
         },
         title: {
